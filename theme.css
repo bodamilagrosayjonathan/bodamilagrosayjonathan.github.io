@@ -32,30 +32,38 @@ html, body{
     font-family: 'Caveat', cursive;
     font-size: .6em;
 }
-.fixed-button{
-    background: rgba(20,20,20,.5);
-    border-radius: 1em;
-    bottom: 1em;
-    color: white;
-    font-weight: bold;
-    padding: 1em;
-    position: fixed;
-    right: 1em;
-    text-decoration: none;
-    z-index: 9999;
+/* Botón fijo RSVP */
+.fixed-button {
+  position: fixed;           /* Siempre visible */
+  top: 20px;                 /* Distancia superior */
+  right: 20px;               /* Distancia derecha */
+  background-color: #ff4081; /* Color de fondo */
+  color: white;              /* Color del texto */
+  padding: 14px 22px;        /* Tamaño del botón */
+  border-radius: 50px;       /* Bordes redondeados tipo “pill” */
+  text-decoration: none;     /* Quitar subrayado */
+  font-weight: bold;         /* Negrita */
+  font-size: 16px;           /* Tamaño de texto */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra para resaltar */
+  z-index: 1000;             /* Siempre encima de otros elementos */
+  transition: all 0.3s ease; /* Animación suave al pasar el ratón */
 }
-.fixed-button::after{
-    content: "\25BE";
-    display: block;
-    font-size: 28px;
-    line-height: 0;
-    margin-bottom: 6px;
-    margin-top: 10px;
-    text-align: center;
+
+/* Efecto al pasar el cursor */
+.fixed-button:hover {
+  background-color: #e91e63;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
-.fixed-button:active,
-.fixed-button:hover{
-    background: rgba(20,20,20,.9);
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .fixed-button {
+    padding: 12px 18px;
+    font-size: 14px;
+    top: 15px;
+    right: 15px;
+  }
 }
 .section{
     margin: 0 auto;
