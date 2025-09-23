@@ -32,28 +32,28 @@ html, body{
     font-family: 'Caveat', cursive;
     font-size: .6em;
 }
-/* Botón fijo RSVP */
+/* Botón fijo RSVP elegante */
 .fixed-button {
-  position: fixed;           /* Siempre visible */
-  top: 20px;                 /* Distancia superior */
-  right: 20px;               /* Distancia derecha */
-  background-color: #ff4081; /* Color de fondo */
-  color: white;              /* Color del texto */
-  padding: 14px 22px;        /* Tamaño del botón */
-  border-radius: 50px;       /* Bordes redondeados tipo “pill” */
-  text-decoration: none;     /* Quitar subrayado */
-  font-weight: bold;         /* Negrita */
-  font-size: 16px;           /* Tamaño de texto */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Sombra para resaltar */
-  z-index: 1000;             /* Siempre encima de otros elementos */
-  transition: all 0.3s ease; /* Animación suave al pasar el ratón */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f7c6c7; /* Rosa pastel */
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 /* Efecto al pasar el cursor */
 .fixed-button:hover {
-  background-color: #e91e63;
+  background-color: #f49ca3; /* Rosa un poco más intenso */
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 /* Estilos para pantallas pequeñas (móviles) */
@@ -65,6 +65,7 @@ html, body{
     right: 15px;
   }
 }
+
 .section{
     margin: 0 auto;
     max-width: 600px;
