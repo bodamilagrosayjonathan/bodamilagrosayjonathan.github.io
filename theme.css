@@ -1,21 +1,22 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-  body {
-    background-color: #f0f2f5;
-  }
+    body {
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
 
-  h1 {
-    text-align: center;
-    margin: 20px 0;
-    color: #333;
-  }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
 
-  .card-container {
+    .card-container {
     display: flex;
     flex-direction: column;
   }
@@ -33,74 +34,114 @@
     transform: translateY(0);
   }
 
-  /* Primera tarjeta: banner con fondo vino */
-  .card:first-child {
-    background-color: #7B1F2E;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    padding: 60px 20px 20px 20px;
-  }
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
 
-  .card:first-child h2,
-  .card:first-child p {
-    margin-bottom: 20px;
-    color: #fff;
-  }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
 
-  /* Imagen primera tarjeta difuminada */
-  .card:first-child img {
-    width: 100%;
-    display: block;
-    border-radius: 0;
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: cover;
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    mask-repeat: no-repeat;
-    mask-size: cover;
-  }
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
 
-  /* Segunda tarjeta: cuenta atrás */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-  }
+    /* Primera tarjeta: estilo banner */
+    .card:first-child {
+      background-color: #7B1F2E; /* color vino */
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      position: relative;
+    }
 
-  .time-box {
-    background-color: rgba(123, 31, 46, 0.1);
-    border-radius: 10px;
-    padding: 10px 15px;
-    text-align: center;
-    min-width: 60px;
-  }
+    .card:first-child h2{
+        color: #ffffff;
+        display: block;
+        font-family: 'Caveat', cursive;
+        font-size: 6em;
+        font-weight: normal;
+        text-shadow: 0 0 10px #000;
+    }
+    .card:first-child p {
+          color: #fff;
+        display: block;
+        font-family: 'Caveat', cursive;
+        font-size: 2em;
+    }
 
-  .time-box span {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #7B1F2E;
-  }
+    /* Imagen superpuesta parcialmente */
+    .card:first-child img {
+      margin-top: 0;
+      width: 100%;
+      display: block;
+      border-radius: 12px; /* mantiene esquinas redondeadas */
+      -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+    }
 
-  .time-box small {
-    display: block;
-    font-size: 0.75rem;
-    color: #333;
-    margin-top: 2px;
-  }
+    @media (max-width: 480px) {
+      .card {
+        padding: 15px;
+      }
 
-  /* Última tarjeta: formulario */
-  .form-container {
-    margin-top: 15px;
-    width: 100%;
-    overflow: hidden;
-  }
+      .card h2 {
+        font-size: 1rem;
+      }
 
-  iframe {
-    width: 100%;
-    height: 600px;
-    border: 0;
-  }
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .card:first-child {
+        padding: 30px 15px 15px 15px;
+      }
+    }
+
+    /* Estilo cuenta atrás */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background-color: rgba(123, 31, 46, 0.1); /* fondo transparente vino */
+  border: 2px solid #7B1F2E; /* borde color vino */
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7B1F2E;
+}
+
+.time-box small {
+  display: block;
+  font-size: 0.75rem;
+  color: #333;
+  margin-top: 2px;
+}
+
+.form-container {
+  margin-top: 15px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
