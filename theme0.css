@@ -1,0 +1,147 @@
+*{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+    color: #222;
+}
+html, body{
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+}
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ocupa toda la altura de la pantalla */
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* la foto se adapta sin deformarse */
+}
+.header{
+    /*background-image: url(./img/portada.jpeg);*/
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 40vh;
+    margin: 0;
+    padding-top: 60vh;
+}
+.heading {
+    color: #ffffff;
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 6em;
+    font-weight: normal;
+    text-shadow: 0 0 10px #000;
+}
+.heading-subtext{
+    color: #fff;
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: .6em;
+}
+/* Botón fijo RSVP elegante */
+.fixed-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f7c6c7; /* Rosa pastel */
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el cursor */
+.fixed-button:hover {
+  background-color: #f49ca3; /* Rosa un poco más intenso */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .fixed-button {
+    padding: 12px 18px;
+    font-size: 14px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+.section{
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 1em 2.4em;
+}
+.sub-heading{
+    font-family: 'Caveat', cursive;
+    font-size: 3em;
+    margin-top: 2em;
+}
+.details{
+    margin: 0 auto 8em;
+}
+.details-heading{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.fas {
+    font-size: 3em;
+    opacity: .8;
+}
+.resort-image{
+    width: 100%
+}
+
+@media only screen and (max-width: 600px) {
+    .heading {
+        font-size: 4em;
+    }
+  }
+
+.side-images {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transition: opacity 1s ease;
+  pointer-events: none; /* que no bloqueen clics */
+  z-index: 100;
+}
+
+.side-images.left {
+  left: 10px;
+}
+
+.side-images.right {
+  right: 10px;
+}
+
+.side-images img {
+  width: 60px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.card:first-child {
+      background-color: #7B1F2E; /* color vino */
+      color: #fff;
+    }
+
+    .card:first-child h2,
+    .card:first-child p {
+      color: #fff;
+    }

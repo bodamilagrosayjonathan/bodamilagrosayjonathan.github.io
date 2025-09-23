@@ -1,98 +1,151 @@
-*{
-    font-family: 'Quicksand', sans-serif;
-    font-size: 16px;
-    color: #222;
-}
-html, body{
-    margin: 0;
-    height: 100vh;
-    text-align: center;
-}
-.header{
-    background-image: url(./img/portada.jpeg);
-    background-repeat: no-repeat;
-    background-position: 50% 60%;
-    background-attachment: scroll;
-    background-size: cover;
-    height: 40vh;
-    margin: 0;
-    padding-top: 60vh;
-}
-.heading {
-    color: #ffffff;
-    display: block;
-    font-family: 'Caveat', cursive;
-    font-size: 6em;
-    font-weight: normal;
-    text-shadow: 0 0 10px #000;
-}
-.heading-subtext{
-    color: #fff;
-    display: block;
-    font-family: 'Caveat', cursive;
-    font-size: .6em;
-}
-/* Botón fijo RSVP elegante */
-.fixed-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #f7c6c7; /* Rosa pastel */
-  color: #fff;
-  padding: 14px 22px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-/* Efecto al pasar el cursor */
-.fixed-button:hover {
-  background-color: #f49ca3; /* Rosa un poco más intenso */
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-  .fixed-button {
-    padding: 12px 18px;
-    font-size: 14px;
-    top: 15px;
-    right: 15px;
-  }
-}
-
-.section{
-    margin: 0 auto;
-    max-width: 600px;
-    padding: 1em 2.4em;
-}
-.sub-heading{
-    font-family: 'Caveat', cursive;
-    font-size: 3em;
-    margin-top: 2em;
-}
-.details{
-    margin: 0 auto 8em;
-}
-.details-heading{
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.fas {
-    font-size: 3em;
-    opacity: .8;
-}
-.resort-image{
-    width: 100%
-}
-
-@media only screen and (max-width: 600px) {
-    .heading {
-        font-size: 4em;
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
-  }
+
+    body {
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      overflow: hidden;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Primera tarjeta: estilo banner */
+    .card:first-child {
+      background-color: #7B1F2E; /* color vino */
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px 20px 20px;
+      position: relative;
+    }
+
+    .card:first-child h2{
+        color: #ffffff;
+        display: block;
+        font-family: 'Caveat', cursive;
+        font-size: 6em;
+        font-weight: normal;
+        text-shadow: 0 0 10px #000;
+    }
+    .card:first-child p {
+          color: #fff;
+        display: block;
+        font-family: 'Caveat', cursive;
+        font-size: 2em;
+    }
+
+    /* Imagen superpuesta parcialmente */
+    .card:first-child img {
+      margin-top: 0;
+      width: 100%;
+      display: block;
+      border-radius: 12px; /* mantiene esquinas redondeadas */
+      -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+      mask-repeat: no-repeat;
+      mask-size: cover;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 15px;
+      }
+
+      .card h2 {
+        font-size: 1rem;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .card:first-child {
+        padding: 30px 15px 15px 15px;
+      }
+    }
+
+    /* Estilo cuenta atrás */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background-color: rgba(123, 31, 46, 0.1); /* fondo transparente vino */
+  border: 2px solid #7B1F2E; /* borde color vino */
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.time-box span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7B1F2E;
+}
+
+.time-box small {
+  display: block;
+  font-size: 0.75rem;
+  color: #333;
+  margin-top: 2px;
+}
+
+.form-container {
+  margin-top: 15px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}

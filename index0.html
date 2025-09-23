@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Boda Milagrosa y Jónathan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" type="text/css" href="theme.css">
+  <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Caveat|Quicksand&display=swap" rel="stylesheet">
+
+  <style>
+    /* Botón de música */
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f7c6c7; /* Rosa pastel suave */
+      color: #fff;
+      border: none;
+      padding: 14px 18px;
+      border-radius: 50%; /* Botón circular */
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .music-button:hover {
+      background-color: #f49ca3;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+   <header class="header">
+    <h1 class="heading">
+      ¡Nos casamos!
+      <span class="heading-subtext">Milagrosa y Jónathan</span>
+      <span class="heading-subtext">11 de abril de 2026</span>
+    </h1>
+  </header>
+
+  <!-- Foto inicial -->
+  <section class="hero-image">
+    <img src="img/portada.jpeg" alt="Foto de Milagrosa y Jónathan">
+  </section>
+  <!-- Encabezado -->
+  <header class="header">
+    <h1 class="heading">
+      ¡Nos casamos!
+      <span class="heading-subtext">Milagrosa y Jónathan</span>
+      <span class="heading-subtext">11 de abril de 2026</span>
+    </h1>
+  </header>
+
+  <!-- Enredaderas -->
+   <div class="side-images left">
+    <img src="img/hoja1.png" alt="decoración lateral">
+    <img src="img/hoja.jpg" alt="decoración lateral">
+    <img src="img/hoja1.png" alt="decoración lateral">
+  </div>
+
+  <div class="side-images right">
+    <img src="img/hoja.jpg" alt="decoración lateral">
+    <img src="img/hoja1.png" alt="decoración lateral">
+    <img src="img/hoja.jpg" alt="decoración lateral">
+  </div>
+
+  <!-- Botón RSVP -->
+  <a class="fixed-button"
+     href="https://docs.google.com/forms/d/e/1FAIpQLSfFcJdFjlT93k3ThcmrEtfhsmjp880Mgfm3chFr1vZMutgjow/viewform?usp=dialog"
+     target="_blank"
+     id="rsvpButton">
+    Confirmar asistencia
+  </a>
+
+  <!-- Sección overview -->
+  <section class="section">
+    <h2 class="sub-heading">Overview</h2>
+    <p>
+      Church wedding debt celebrate macarena embarrassing glitter Will.
+      Forever happy salad cheers photobooth photographer limousine photobooth photographer
+      limousine prime rib, guitar acoustic bass photobooth photographer limousine sparkles
+      beautiful sparkles guitar acoustic bass beautiful. Cake dessert mother guitar acoustic
+      bass cheers, uncle joe seat covers guitar acoustic bass macarena seat covers cake
+      dessert embarrassing.
+    </p>
+  </section>
+
+  <!-- Sección detalles -->
+  <section class="section">
+    <h2 class="sub-heading">Detalles</h2>
+
+    <div class="details">
+      <i class="fas fa-calendar-check"></i>
+      <h3 class="details-heading">¿Cuándo?</h3>
+      <p>11 de abril de 2026 a las 17:00</p>
+      <a title="Add to Calendar" rel="noopener"
+         href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NHJ0anJwM3RjaTE2NWhsZzRtNWQ5MmR1dGogYm9kYW1pbGFncm9zYXlqb25hdGhhbkBt&tmsrc=bodamilagrosayjonathan%40gmail.com"
+         target="_blank" rel="nofollow">
+        Añadir al calendario
+      </a>
+    </div>
+
+    <div class="details">
+      <i class="fas fa-map-marked-alt"></i>
+      <h3 class="details-heading">Lugar</h3>
+      <p>
+        La ceremonia tendrá lugar en la
+        <a href="https://maps.app.goo.gl/yfmFXrebRCLzpEao7">Iglesia de Santos Servando y Germán de Uruñuela</a>.
+      </p>
+      <p>
+        Posteriormente, la cena será en el
+        <a href="https://maps.app.goo.gl/tDwuLtVWkDH6Q2RbA">restaurante Villacañas de Villamediana de Iregua</a>.
+      </p>
+    </div>
+
+    <div class="details">
+      <i class="fas fa-bus"></i>
+      <h3 class="details-heading">Autobús</h3>
+      <p>Ponemos a vuestra disposición autobuses:</p>
+      <p>Desde Logroño:</p>
+      <p>Desde Nájera:</p>
+    </div>
+
+    <!-- Confirmación ya cubierta con botón fijo -->
+    <!--
+    <div class="details">
+      <i class="fas fa-check-square"></i>
+      <h3 class="details-heading">Confirmación</h3>
+      <p>Rogamos nos confirmes tu asistencia a través del siguiente enlace:</p>
+      <p><a href="https://docs.google.com/forms/...">Formulario</a></p>
+    </div>
+    -->
+
+    <div class="details">
+      <i class="fas fa-camera"></i>
+      <h3 class="details-heading">Fotos</h3>
+      <p>Puedes subir las fotos que hagas en la boda al siguiente enlace:</p>
+      <p><a href="https://www.dropbox.com/request/jHXZ8ogCF34Pvgvh1gbz">Subir fotos</a></p>
+    </div>
+  </section>
+
+  <!-- Música de fondo -->
+  <audio id="bg-music" autoplay loop muted>
+    <source src="audio/mares.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio en HTML5.
+  </audio>
+
+  <!-- Botón flotante de altavoz -->
+  <button id="music-toggle" class="music-button">🔇</button>
+
+  <!-- Scripts -->
+  <script>
+      const leftImgs = document.querySelectorAll(".side-images.left img");
+const rightImgs = document.querySelectorAll(".side-images.right img");
+
+// combinamos las imágenes en un solo array intercalado
+const totalImgs = Math.max(leftImgs.length, rightImgs.length);
+
+function handleScroll() {
+  let scrollTop = window.scrollY;
+  let docHeight = document.body.scrollHeight - window.innerHeight;
+  let progress = scrollTop / docHeight; // entre 0 y 1
+
+  for (let i = 0; i < totalImgs; i++) {
+    let start = i * 0.1;   // ajusta la velocidad de aparición
+    let end = start + 0.1;
+
+    // imagen izquierda
+    if (i < leftImgs.length) {
+      if (progress >= start && progress < end) {
+        leftImgs[i].style.opacity = "1";
+        leftImgs[i].style.transform = "translateY(0)";
+      } else {
+        leftImgs[i].style.opacity = "0";
+        leftImgs[i].style.transform = "translateY(50px)";
+      }
+    }
+
+    // imagen derecha
+    if (i < rightImgs.length) {
+      if (progress >= start + 0.05 && progress < end + 0.05) {
+        // desplazamos un poco el inicio para que se intercale
+        rightImgs[i].style.opacity = "1";
+        rightImgs[i].style.transform = "translateY(0)";
+      } else {
+        rightImgs[i].style.opacity = "0";
+        rightImgs[i].style.transform = "translateY(50px)";
+      }
+    }
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
+
+
+
+    // Música de fondo
+    const music = document.getElementById("bg-music");
+    const toggleBtn = document.getElementById("music-toggle");
+
+    // Activar sonido en el primer clic
+    document.body.addEventListener("click", () => {
+      music.muted = false;
+    }, { once: true });
+
+    // Botón de play/pause
+    toggleBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggleBtn.textContent = "🔊";
+      } else {
+        music.pause();
+        toggleBtn.textContent = "🔇";
+      }
+    });
+  </script>
+</body>
+</html>
