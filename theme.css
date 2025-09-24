@@ -298,12 +298,22 @@ display: flex;
   margin-bottom: 15px; /* espacio debajo del título */
 }
 
+.soft-bg {
+  position: relative;
+  border-radius: 12px;
+  color: #333;
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.7); /* fondo suave si quieres */
+}
+
 .soft-img {
-  width: 100%;        /* ocupa todo el ancho disponible */
-  height: auto;       /* mantiene la proporción original */
-  border-radius: 10px; /* esquinas redondeadas como las tarjetas */
-  margin-top: 15px;
+  width: 100%;
+  height: auto;       /* mantiene proporción */
+  border-radius: 10px; /* esquinas redondeadas */
   display: block;
+  margin: 15px 0 0 0;
 }
 
 .soft-bg-content p {
