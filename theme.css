@@ -406,11 +406,11 @@ display: flex;
 }
 
 .soft-list-box li {
-  background-color: rgba(123, 31, 46, 0.08); /* fondo suave */
+  background-color: rgba(123, 31, 46, 0.6); /* fondo suave */
   border: 1px solid rgba(123,31,46,0.2);
   border-radius: 10px;
   padding: 12px 15px;
-  color: #333;
+  color: #fff;
   font-weight: 500;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
