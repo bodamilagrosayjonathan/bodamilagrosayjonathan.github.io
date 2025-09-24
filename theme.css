@@ -180,6 +180,10 @@
         font-size: 2em;
     }
 
+    .card h2 {
+    color: #7B1F2E;
+    }
+
 .third-card-container {
 display: flex;
   gap: 0px; /* antes 20px */
@@ -257,4 +261,57 @@ display: flex;
   background-color: #7B1F2E;
   border-radius: 50%;
   font-weight: bold;
+}
+
+.card.soft-bg {
+  position: relative;
+  border-radius: 12px;
+  color: #333;
+  text-align: center;
+  padding: 130px 30px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Capa blanca translúcida para suavizar */
+.card.soft-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.7); /* suaviza la imagen */
+  backdrop-filter: blur(2px); /* desenfoque ligero */
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* Contenido encima */
+.soft-bg-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card.soft-bg h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #7B1F2E; /* tono vino */
+}
+
+.card.soft-bg p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Diferentes fondos para cada tarjeta */
+.bg1 {
+  background-image: url("img/iglesia1.jpeg");
+}
+
+.bg2 {
+  background-image: url("https://via.placeholder.com/800x500?text=Maridaje");
+}
+
+.bg3 {
+  background-image: url("https://via.placeholder.com/800x500?text=Atardecer");
 }

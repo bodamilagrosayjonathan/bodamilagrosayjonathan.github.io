@@ -23,14 +23,24 @@
    </div>
 
 
+    <div class="card soft-bg bg1">
+      <div class="soft-bg-content">
+        <h2>Experiencia Única</h2>
+        <p>Vive un recorrido inolvidable entre viñedos.</p>
+      </div>
+    </div>
+
+
+
     <!-- Otras tarjetas normales -->
     <div class="card">
-        <p>Faltan:</p>
+        <center><h2>¡Estoy impaciente! ¿Cuánto falta?</h2></center>
         <div id="countdown" class="countdown">
             <div class="time-box"><span id="months">0</span><small>Meses</small></div>
             <div class="time-box"><span id="days">0</span><small>Días</small></div>
             <div class="time-box"><span id="hours">0</span><small>Horas</small></div>
             <div class="time-box"><span id="minutes">0</span><small>Minutos</small></div>
+            <div class="time-box"><span id="seconds">0</span><small>Segundos</small></div>
         </div>
 
         <div class="calendar">
@@ -85,7 +95,7 @@
   </div>
 </div>
 
-
+    <center><a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NHJ0anJwM3RjaTE2NWhsZzRtNWQ5MmR1dGogYm9kYW1pbGFncm9zYXlqb25hdGhhbkBt&tmsrc=bodamilagrosayjonathan%40gmail.com" target="_blank" class="upload-button">Añadir al calendario</a></center>
     </div>
     <div class="card">
         <img src="https://via.placeholder.com/400x200" alt="Imagen 3">
@@ -146,7 +156,7 @@
       const now = new Date().getTime();
       let distance = targetDate - now;
 
-      if(distance < 0){
+      if (distance < 0) {
         document.getElementById("countdown").innerHTML = "¡Evento iniciado!";
         clearInterval(countdownInterval);
         return;
@@ -163,12 +173,16 @@
       distance -= hours * 1000 * 60 * 60;
 
       const minutes = Math.floor(distance / (1000 * 60));
+      distance -= minutes * 1000 * 60;
+
+      const seconds = Math.floor(distance / 1000);
 
       document.getElementById("months").innerText = months;
       document.getElementById("days").innerText = days;
       document.getElementById("hours").innerText = hours;
       document.getElementById("minutes").innerText = minutes;
-    }
+      document.getElementById("seconds").innerText = seconds;
+}
 
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
