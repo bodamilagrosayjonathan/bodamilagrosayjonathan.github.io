@@ -20,18 +20,61 @@
     flex-direction: column;
   }
 
-  .card {
-    width: 100%;
-    padding: 40px 20px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
+.card {
+  width: 100%;
+  padding: 40px 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  /* Separación sutil */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* línea muy ligera */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03); /* sombra tenue */
+  margin-bottom: 20px; /* espacio entre tarjetas */
+  border-radius: 12px; /* opcional, redondea esquinas */
+}
 
   .card.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Primera tarjeta estilo banner con fondo imagen */
+.card.banner {
+  position: relative;
+  background: url("img/fondo.jpg") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px 20px 20px;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.2); /* oscurece la imagen para mejor contraste */
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* Imagen inferior difuminada */
+.card.banner img {
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
 
   /* Primera tarjeta: banner con fondo vino */
   .card:first-child {
@@ -115,16 +158,24 @@
     }
 
     .card:first-child h2{
-        color: #ffffff;
-        display: block;
+        background: linear-gradient(45deg, #b8860b, #ffd700, #daa520);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
         font-family: 'Caveat', cursive;
         font-size: 6em;
-        font-weight: normal;
-        text-shadow: 0 0 10px #000;
     }
     .card:first-child p {
-          color: #fff;
-        display: block;
+        background: linear-gradient(45deg, #b8860b, #ffd700, #daa520);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
         font-family: 'Caveat', cursive;
         font-size: 2em;
     }
@@ -171,4 +222,39 @@ display: flex;
 .upload-button:hover {
   background-color: #7B1F2E;
   color: #fff;
+}
+
+/* Estilo calendario */
+.calendar {
+  max-width: 350px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.calendar h2 {
+  margin-bottom: 10px;
+  color: #7B1F2E;
+}
+
+.days-header, .days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.days-header div {
+  font-weight: bold;
+  padding: 5px 0;
+  color: #333;
+}
+
+.days-grid div {
+  padding: 10px 0;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.days-grid .heart {
+  color: #fff;
+  background-color: #7B1F2E;
+  border-radius: 50%;
+  font-weight: bold;
 }
