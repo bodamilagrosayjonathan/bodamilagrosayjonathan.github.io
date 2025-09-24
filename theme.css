@@ -359,6 +359,12 @@ display: flex;
   background-image: url("img/villacañas.jpeg");
 }
 
+.bg7 {
+  background: rgba(255,255,255,0.9); /* suaviza la imagen */
+  background-image: url("img/fondo.jpeg");
+}
+
+
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
@@ -382,4 +388,39 @@ display: flex;
 .whatsapp-icon {
   width: 20px;
   height: 20px;
+}
+
+/* Lista con cajas suaves */
+.soft-list-box {
+  list-style: none; /* quitamos bullets */
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* espacio entre ítems */
+}
+
+.soft-list-box li {
+  background-color: rgba(123, 31, 46, 0.08); /* fondo suave */
+  border: 1px solid rgba(123,31,46,0.2);
+  border-radius: 10px;
+  padding: 12px 15px;
+  color: #333;
+  font-weight: 500;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Pequeña animación al pasar el mouse o tocar en móvil */
+.soft-list-box li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Adaptativo en móviles */
+@media (max-width: 480px) {
+  .soft-list-box li {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
 }
