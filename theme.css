@@ -291,16 +291,35 @@ display: flex;
   z-index: 2;
 }
 
-.card.soft-bg h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+.soft-bg-content h2 {
+  font-size: 1.6rem;
   font-weight: bold;
-  color: #7B1F2E; /* tono vino */
+  color: #7B1F2E;
+  margin-bottom: 15px; /* espacio debajo del título */
 }
 
-.card.soft-bg p {
+.soft-bg-content p {
   font-size: 1rem;
-  color: #444;
+  color: #333;
+  font-weight: bold;
+  margin: 8px 0; /* espacio entre párrafos */
+  line-height: 1.4; /* mejor legibilidad */
+}
+
+.soft-bg-content .upload-button {
+  display: inline-block;
+  margin-top: 15px; /* espacio antes del botón */
+  padding: 10px 18px;
+  background-color: #7B1F2E;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.soft-bg-content .upload-button:hover {
+  background-color: #a02e44;
 }
 
 /* Diferentes fondos para cada tarjeta */
@@ -314,4 +333,29 @@ display: flex;
 
 .bg3 {
   background-image: url("https://via.placeholder.com/800x500?text=Atardecer");
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: #25D366; /* verde oficial WhatsApp */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5b;
+  transform: scale(1.05);
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
 }
