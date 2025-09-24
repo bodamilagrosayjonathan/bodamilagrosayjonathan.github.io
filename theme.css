@@ -328,11 +328,12 @@ display: flex;
 }
 
 .bg2 {
-  background-image: url("https://via.placeholder.com/800x500?text=Maridaje");
+  background-image: url("img/fotografa.jpeg");
 }
 
 .bg3 {
-  background-image: url("https://via.placeholder.com/800x500?text=Atardecer");
+  background: rgba(255,255,255,0.9); /* suaviza la imagen */
+  background-image: url("img/cepas.jpeg");
 }
 
 .whatsapp-button {
