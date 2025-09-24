@@ -359,6 +359,11 @@ display: flex;
   background-image: url("img/villacañas.jpeg");
 }
 
+.bg5 {
+  background: rgba(255,255,255,0.9); /* suaviza la imagen */
+  background-image: url("img/flores.jpeg");
+}
+
 .bg7 {
   background: rgba(255,255,255,0.9); /* suaviza la imagen */
   background-image: url("img/fondo.jpeg");
