@@ -336,6 +336,11 @@ display: flex;
   background-image: url("img/cepas.jpeg");
 }
 
+.bg4 {
+  background: rgba(255,255,255,0.9); /* suaviza la imagen */
+  background-image: url("img/villacañas.jpeg");
+}
+
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
