@@ -298,6 +298,14 @@ display: flex;
   margin-bottom: 15px; /* espacio debajo del título */
 }
 
+.soft-img {
+  width: 100%;        /* ocupa todo el ancho disponible */
+  height: auto;       /* mantiene la proporción original */
+  border-radius: 10px; /* esquinas redondeadas como las tarjetas */
+  margin-top: 15px;
+  display: block;
+}
+
 .soft-bg-content p {
   font-size: 1rem;
   color: #333;
