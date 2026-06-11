@@ -41,6 +41,26 @@
             line-height: 1.8;
         }
 
+        body::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+
+            width: 120px;
+            height: 100%;
+
+            background-image: url("img/hoja1.png");
+            background-repeat: repeat-y;
+            background-position: center;
+            background-size: 120px auto;
+
+            opacity: .15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         h1,
         h2 {
             font-family: 'Playfair Display', serif;
@@ -169,7 +189,6 @@
             text-decoration: none;
             background: var(--gold);
             color: white;
-            border-radius: 50px;
             font-weight: 600;
             transition: .3s;
         }
@@ -312,16 +331,64 @@
         }
 
         .image-divider img {
-            width: 120px;
+            width: 200px;
             /* más pequeña */
             height: auto;
 
             /* gira 90 grados */
         }
+
+        .floral-thread {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .floral-thread img {
+            width: 80px;
+            opacity: .25;
+        }
+
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floral-side {
+            position: absolute;
+            width: 220px;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floral-left {
+            left: -140px;
+            top: 25%;
+            transform: translateY(-10%);
+        }
+
+        .floral-right {
+            right: -140px;
+            top: 50%;
+            transform: translateY(-50%) scaleX(-1);
+        }
+
+        .section>* {
+            position: relative;
+            z-index: 2;
+        }
     </style>
 </head>
 
 <body>
+
 
     <!-- PORTADA -->
     <header class="hero">
@@ -336,7 +403,7 @@
                 ❦
             </div>
 
-            <h1>María & Juan</h1>
+            <h1>Milagrosa & Jónathan</h1>
 
             <p class="date">
                 14 · JUNIO · 2027
@@ -360,6 +427,9 @@
 
     <section class="section reveal">
 
+        <img src="img/hoja1.png" class="floral-side floral-left" alt="">
+
+
         <div class="image-divider">
             <img src="img/iglesia1.jpeg" alt="Separador floral">
         </div>
@@ -378,6 +448,8 @@
         <a href="https://maps.google.com" target="_blank" class="btn">
             Cómo llegar
         </a>
+
+        <img src="img/hoja1.png" class="floral-side floral-right" alt="">
 
     </section>
 
