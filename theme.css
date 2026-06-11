@@ -1,431 +1,670 @@
- * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+/* ==========================================================================
+   DISEÑO PREMIUM DE BODA - MILAGROSA Y JÓNATHAN
+   ========================================================================== */
 
-  body {
-     background-color: #ffffff;
-  }
+:root {
+  /* Paleta de Colores Elegante */
+  --burgundy: #7B1F2E;
+  --burgundy-light: #9C2E3F;
+  --burgundy-dark: #4A0F1A;
+  --burgundy-rgba: rgba(123, 31, 46, 0.85);
+  
+  --gold: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-dark: #AA7C11;
+  --gold-gradient: linear-gradient(135deg, #b8860b, #ffd700, #daa520);
+  
+  --cream: #FAF8F5;
+  --cream-dark: #F3ECE2;
+  --white: #FFFFFF;
+  
+  --charcoal: #3A3630;
+  --charcoal-light: #706B63;
+  
+  /* Fuentes Tipográficas */
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-hand: 'Caveat', cursive;
+  
+  /* Transiciones y Sombras */
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-soft: 0 10px 30px rgba(123, 31, 46, 0.04);
+  --shadow-card: 0 15px 35px rgba(74, 16, 26, 0.08);
+  --shadow-hover: 0 25px 55px rgba(74, 16, 26, 0.15);
+  --border-gold: 1px solid rgba(212, 175, 55, 0.25);
+  --border-light: 1px solid rgba(123, 31, 46, 0.06);
+}
 
-  h1 {
-    text-align: center;
-    margin: 20px 0;
-    color: #333;
-  }
+/* Reset y Estilos Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  padding: 20px 0;
+}
+
+/* Encabezado Principal */
+h1 {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  margin: 30px 0;
+  color: var(--burgundy);
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   Contenedor Principal y Grid System
+   ========================================================================== */
+.card-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
   .card-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
+  
+  /* Tarjetas de ancho completo */
+  .card.banner,
+  .card.card-itinerary,
+  .card.bg5,
+  .card.bg3,
+  .card.bg2,
+  .card.bg7 {
+    grid-column: span 2;
+  }
+}
 
+/* ==========================================================================
+   Tarjetas (Cards)
+   ========================================================================== */
 .card {
-  width: 100%;
-  padding: 40px 20px;
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 50px 40px;
+  box-shadow: var(--shadow-card);
+  border: var(--border-light);
+  position: relative;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-  /* Separación sutil */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* línea muy ligera */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.03); /* sombra tenue */
-  margin-bottom: 20px; /* espacio entre tarjetas */
-  border-radius: 12px; /* opcional, redondea esquinas */
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
 }
 
-  .card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Primera tarjeta estilo banner con fondo imagen */
-.card.banner {
-  position: relative;
-  background: url("img/fondo.jpg") center/cover no-repeat;
-  color: #fff;
-  text-align: center;
-  padding: 60px 20px 20px 20px;
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.banner-content {
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+/* Tarjetas con Fondo de Imagen Suavizado (Glassmorphism) */
+.card.soft-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.card.soft-bg::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.card.soft-bg:hover::before {
+  background: rgba(255, 255, 255, 0.92);
+  inset: 10px;
+}
+
+.soft-bg-content {
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .card {
+    padding: 40px 20px;
+  }
+  .card.soft-bg {
+    padding: 45px 15px;
+  }
+  .card.soft-bg::before {
+    inset: 8px;
+  }
+  .card.soft-bg:hover::before {
+    inset: 6px;
+  }
+}
+
+/* ==========================================================================
+   Títulos de Sección (H2) y Textos
+   ========================================================================== */
+.card h2 {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: var(--burgundy);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.card h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 12px auto 0 auto;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.card:hover h2::after {
+  width: 80px;
+  background: var(--burgundy);
+}
+
+.soft-bg-content p {
+  font-size: 1.05rem;
+  color: var(--charcoal);
+  margin: 10px 0;
+  font-weight: 400;
+}
+
+.soft-bg-content p strong {
+  color: var(--burgundy-light);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   1. Banner Principal (Hero)
+   ========================================================================== */
+.card.banner {
+  background: url("img/fondo.jpg") center/cover no-repeat;
+  color: var(--white);
+  text-align: center;
+  padding: 80px 30px 40px 30px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card.banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2); /* oscurece la imagen para mejor contraste */
-  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(74, 16, 26, 0.4) 0%, rgba(74, 16, 26, 0.1) 50%, rgba(74, 16, 26, 0.45) 100%);
+  border-radius: 24px;
   z-index: 1;
 }
 
-/* Imagen inferior difuminada */
-.card.banner img {
-  margin-top: 20px;
-  width: 100%;
+.card.banner h2 {
+  font-family: var(--font-hand);
+  font-size: 5.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35));
+  line-height: 1.1;
   display: block;
-  border-radius: 12px;
-  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-  mask-repeat: no-repeat;
-  mask-size: cover;
 }
 
-  /* Primera tarjeta: banner con fondo vino */
-  .card:first-child {
-    background-color: #7B1F2E;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    padding: 60px 20px 20px 20px;
-  }
-
-  .card:first-child h2,
-  .card:first-child p {
-    margin-bottom: 20px;
-    color: #fff;
-  }
-
-  /* Imagen primera tarjeta difuminada */
-  .card:first-child img {
-    width: 100%;
-    display: block;
-    border-radius: 0;
-    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: cover;
-    mask-image: radial-gradient(circle, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
-    mask-repeat: no-repeat;
-    mask-size: cover;
-  }
-
-  /* Segunda tarjeta: cuenta atrás */
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-  }
-
-  .time-box {
-    background-color: rgba(123, 31, 46, 0.1);
-    border-radius: 10px;
-    padding: 10px 15px;
-    text-align: center;
-    min-width: 60px;
-  }
-
-  .time-box span {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #7B1F2E;
-  }
-
-  .time-box small {
-    display: block;
-    font-size: 0.75rem;
-    color: #333;
-    margin-top: 2px;
-  }
-
-  /* Última tarjeta: formulario */
-  .form-container {
-    margin-top: 15px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  iframe {
-    width: 100%;
-    height: 600px;
-    border: 0;
-  }
-
-/* Primera tarjeta: estilo banner */
-    .card:first-child {
-      background-color: #7B1F2E; /* color vino */
-      color: #fff;
-      text-align: center;
-      padding: 40px 20px 20px 20px;
-      position: relative;
-    }
-
-    .card:first-child h2{
-        background: linear-gradient(45deg, #b8860b, #ffd700, #daa520);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-        font-family: 'Caveat', cursive;
-        font-size: 6em;
-    }
-    .card:first-child p {
-        background: linear-gradient(45deg, #b8860b, #ffd700, #daa520);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-fill-color: transparent;
-      font-weight: bold;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-        font-family: 'Caveat', cursive;
-        font-size: 2em;
-    }
-
-    .card h2 {
-    color: #7B1F2E;
-    }
-
-.third-card-container {
-display: flex;
-  gap: 0px; /* antes 20px */
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+.card.banner h2::after {
+  display: none;
 }
 
-.side-image img {
-  max-width: 150px;
+.card.banner p {
+  color: var(--white);
+}
+
+.card.banner p:nth-child(2) {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.card.banner p:nth-child(3) {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+
+.card.banner img {
+  margin-top: 15px;
   width: 100%;
-  border-radius: 12px;
-}
-.upload-area {
-  flex: 1;
-  min-width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centra verticalmente el texto y el input */
-  align-items: center;
-  padding: 20px;
-
-  text-align: center;
+  max-width: 580px;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  position: relative;
+  transition: var(--transition);
+  
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
 }
 
-/* Botón de subida estilizado como enlace */
+.card.banner:hover img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 576px) {
+  .card.banner h2 {
+    font-size: 3.8rem;
+  }
+  .card.banner p:nth-child(2) {
+    font-size: 1.8rem;
+  }
+  .card.banner p:nth-child(3) {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 25px;
+  }
+  .card.banner img {
+    margin-top: 5px;
+  }
+}
+
+/* ==========================================================================
+   Botones Premium
+   ========================================================================== */
 .upload-button {
-  display: inline-block;
-  background-color: rgba(123, 31, 46, 0.2); /* tono vino suave */
-  border: 2px solid #7B1F2E;
-  color: #7B1F2E;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--burgundy);
+  border: 1px solid var(--burgundy);
+  color: var(--white) !important;
+  padding: 13px 26px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
   text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
+  margin-top: 25px;
+  box-shadow: 0 4px 15px rgba(123, 31, 46, 0.2);
+  transition: var(--transition);
   cursor: pointer;
 }
 
 .upload-button:hover {
-  background-color: #7B1F2E;
-  color: #fff;
+  background-color: var(--white);
+  color: var(--burgundy) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(123, 31, 46, 0.3);
+  border-color: var(--burgundy);
 }
 
-/* Estilo calendario */
-.calendar {
-  max-width: 350px;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.calendar h2 {
-  margin-bottom: 10px;
-  color: #7B1F2E;
-}
-
-.days-header, .days-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.days-header div {
-  font-weight: bold;
-  padding: 5px 0;
-  color: #333;
-}
-
-.days-grid div {
-  padding: 10px 0;
-  border: 1px solid rgba(0,0,0,0.05);
-}
-
-.days-grid .heart {
-  color: #fff;
-  background-color: #7B1F2E;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.card.soft-bg {
-  position: relative;
-  border-radius: 12px;
-  color: #333;
-  text-align: center;
-  padding: 130px 30px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Capa blanca translúcida para suavizar */
-.card.soft-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0.7); /* suaviza la imagen */
-  backdrop-filter: blur(2px); /* desenfoque ligero */
-  border-radius: 12px;
-  z-index: 1;
-}
-
-/* Contenido encima */
-.soft-bg-content {
-  position: relative;
-  z-index: 2;
-}
-
-.soft-bg-content h2 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #7B1F2E;
-  margin-bottom: 15px; /* espacio debajo del título */
-}
-
-.soft-bg {
-  position: relative;
-  border-radius: 12px;
-  color: #333;
-  text-align: center;
-  padding: 40px 20px;
-  overflow: hidden;
-  background-color: rgba(255,255,255,0.7); /* fondo suave si quieres */
-}
-
-.soft-img {
-  width: 100%;
-  height: auto;       /* mantiene proporción */
-  border-radius: 10px; /* esquinas redondeadas */
-  display: block;
-  margin: 15px 0 0 0;
-}
-
-.soft-bg-content p {
-  font-size: 1rem;
-  color: #333;
-  font-weight: bold;
-  margin: 8px 0; /* espacio entre párrafos */
-  line-height: 1.4; /* mejor legibilidad */
-}
-
-.soft-bg-content .upload-button {
-  display: inline-block;
-  margin-top: 15px; /* espacio antes del botón */
-  padding: 10px 18px;
-  background-color: #7B1F2E;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  transition: background 0.3s;
-}
-
-.soft-bg-content .upload-button:hover {
-  background-color: #a02e44;
-}
-
-/* Diferentes fondos para cada tarjeta */
+/* ==========================================================================
+   2. Detalles de Ceremonia y Celebración (bg1, bg4)
+   ========================================================================== */
 .bg1 {
   background-image: url("img/iglesia1.jpeg");
 }
 
+.bg4 {
+  background-image: url("img/villacañas.jpeg");
+}
+
+/* ==========================================================================
+   3. Servicio de Autobuses (bg5)
+   ========================================================================== */
+.bg5 {
+  background-image: url("img/flores.jpeg");
+}
+
+.soft-list-box {
+  list-style: none;
+  padding: 0;
+  margin: 25px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 580px;
+  text-align: left;
+}
+
+.soft-list-box li {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-left: 4px solid var(--burgundy);
+  border-radius: 12px;
+  padding: 14px 18px;
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.01);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.soft-list-box li::before {
+  content: "\f207"; /* Icono autobús de FontAwesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: var(--burgundy);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.soft-list-box li:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(123, 31, 46, 0.08);
+  border-left-color: var(--gold);
+  background-color: var(--white);
+}
+
+/* ==========================================================================
+   4. Itinerario (card-itinerary)
+   ========================================================================== */
+.card-itinerary {
+  background-color: var(--white);
+}
+
+.itinerary-img-wrapper {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+  border: var(--border-gold);
+  margin: 25px auto 0 auto;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+}
+
+.itinerary-img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+/* ==========================================================================
+   5. Cuenta Atrás y Calendario (bg3)
+   ========================================================================== */
+.bg3 {
+  background-image: url("img/cepas.jpeg");
+}
+
+/* Contador */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 25px auto;
+  max-width: 500px;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: var(--transition);
+}
+
+.time-box:hover {
+  transform: scale(1.06);
+  border-color: var(--burgundy);
+  box-shadow: 0 6px 18px rgba(123, 31, 46, 0.12);
+}
+
+.time-box span {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  line-height: 1;
+}
+
+.time-box small {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--charcoal-light);
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+/* Calendario */
+.calendar {
+  max-width: 320px;
+  margin: 35px auto 20px auto;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.calendar h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.calendar h2::after {
+  display: none;
+}
+
+.days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.days-header div {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.7rem;
+  color: var(--charcoal-light);
+  text-transform: uppercase;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 5px;
+  column-gap: 3px;
+  text-align: center;
+}
+
+.days-grid div {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 8px 0;
+  color: var(--charcoal);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  transition: var(--transition);
+}
+
+.days-grid div:not(:empty):not(.heart):hover {
+  background-color: var(--cream-dark);
+  cursor: pointer;
+}
+
+/* Círculo Burdeos para el Día de la Boda con animación */
+.days-grid .heart {
+  background-color: var(--burgundy);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 8px rgba(123, 31, 46, 0.25);
+  position: relative;
+  animation: heartbeatPulse 2.4s infinite alternate ease-in-out;
+}
+
+@keyframes heartbeatPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 3px 8px rgba(123, 31, 46, 0.25);
+  }
+  100% {
+    transform: scale(1.08);
+    box-shadow: 0 4px 14px rgba(123, 31, 46, 0.5);
+    background-color: var(--burgundy-light);
+  }
+}
+
+/* ==========================================================================
+   6. Sube tus Fotos (bg2)
+   ========================================================================== */
 .bg2 {
   background-image: url("img/fotografa.jpeg");
 }
 
-.bg3 {
-  background: rgba(255,255,255,0.9); /* suaviza la imagen */
-  background-image: url("img/cepas.jpeg");
-}
-
-.bg4 {
-  background: rgba(255,255,255,0.9); /* suaviza la imagen */
-  background-image: url("img/villacañas.jpeg");
-}
-
-.bg5 {
-  background: rgba(255,255,255,0.9); /* suaviza la imagen */
-  background-image: url("img/flores.jpeg");
-}
-
+/* ==========================================================================
+   7. Confirmación de Asistencia (bg7)
+   ========================================================================== */
 .bg7 {
-  background: rgba(255,255,255,0.9); /* suaviza la imagen */
   background-image: url("img/fondo.jpeg");
 }
 
+.whatsapp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin: 25px auto;
+  max-width: 500px;
+}
+
+@media (min-width: 600px) {
+  .whatsapp-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 
 .whatsapp-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 12px 20px;
-  background-color: #25D366; /* verde oficial WhatsApp */
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
+  background-color: #25D366;
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.2s;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.2);
+  transition: var(--transition);
+  flex: 1;
+  width: 100%;
 }
 
 .whatsapp-button:hover {
-  background-color: #1ebe5b;
-  transform: scale(1.05);
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
 }
 
 .whatsapp-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
-/* Lista con cajas suaves */
-.soft-list-box {
-  list-style: none; /* quitamos bullets */
-  padding: 0;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px; /* espacio entre ítems */
+/* Contenedor del Formulario */
+.form-container {
+  margin-top: 30px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+  border: var(--border-gold);
+  overflow: hidden;
 }
 
-.soft-list-box li {
-  background-color: rgba(123, 31, 46, 0.6); /* fondo suave */
-  border: 1px solid rgba(123,31,46,0.2);
-  border-radius: 10px;
-  padding: 12px 15px;
-  color: #fff;
-  font-weight: 500;
-  text-align: left;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Pequeña animación al pasar el mouse o tocar en móvil */
-.soft-list-box li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* Adaptativo en móviles */
-@media (max-width: 480px) {
-  .soft-list-box li {
-    padding: 10px 12px;
-    font-size: 0.95rem;
-  }
+.form-container iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 12px;
+  display: block;
 }
