@@ -1,27 +1,26 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>María & Juan - Nuestra Boda</title>
+
+    <title>María & Juan | Nuestra Boda</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --green-dark: #5F7560;
             --green: #8FA68E;
-            --green-light: #EAF0EA;
+            --green-dark: #5F7560;
             --gold: #C9A227;
             --ivory: #FAF8F2;
-            --text: #37403A;
-            --white: #ffffff;
+            --text: #4D544E;
         }
 
         * {
@@ -35,183 +34,190 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
             background: var(--ivory);
             color: var(--text);
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
         }
 
         h1,
-        h2,
-        h3 {
+        h2 {
             font-family: 'Playfair Display', serif;
-        }
-
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--green-dark);
-            font-size: 2.3rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            border-radius: 40px;
-            transition: .3s;
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            opacity: .9;
         }
 
         .hero {
             min-height: 100vh;
-            background:
-                linear-gradient(rgba(0, 0, 0, .35), rgba(0, 0, 0, .35)),
-                url('img/portada.jpeg');
-            background-size: cover;
-            background-position: center;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, .35),
+                    rgba(0, 0, 0, .45));
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .hero-content h1 {
+            font-size: 4.5rem;
             margin-bottom: 10px;
-        }
-
-        .hero .date {
-            font-size: 1.3rem;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto auto 30px;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 35px;
-            border-radius: 18px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
-        }
-
-        .card h3 {
-            color: var(--green-dark);
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            margin-bottom: 10px;
-        }
-
-        .bus-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .bus-card {
-            background: white;
-            border-top: 5px solid var(--gold);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
-        }
-
-        .bus-card h3 {
-            color: var(--green-dark);
-            margin-bottom: 10px;
-        }
-
-        .countdown {
-            background: var(--green-dark);
             color: white;
         }
 
-        .timer {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 800px;
+        .hero-content .date {
+            color: #F4D77A;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            max-width: 500px;
             margin: auto;
         }
 
-        .time-box {
-            background: rgba(255, 255, 255, .1);
-            padding: 25px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .time-box span {
-            display: block;
-        }
-
-        .time-number {
+        .hero-floral {
             font-size: 2.5rem;
-            font-weight: 700;
+            margin-bottom: 20px;
+            color: #F4D77A;
         }
 
-        .time-label {
-            text-transform: uppercase;
-            font-size: .9rem;
-            letter-spacing: 2px;
+        .scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
         }
 
-        .photos {
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .section {
+            max-width: 800px;
+            margin: auto;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        .confirmation-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        .section h2 {
+            font-size: 2.5rem;
+            color: var(--green-dark);
+            margin-bottom: 20px;
         }
 
-        .whatsapp-box,
-        .form-box {
-            background: white;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, .08);
+        .section-icon {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .floral-divider {
+            text-align: center;
+            color: var(--gold);
+            font-size: 1.8rem;
+            letter-spacing: 10px;
+            margin: 10px 0;
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            text-decoration: none;
+            background: var(--gold);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .bus-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 30px auto;
+        }
+
+        .bus-list li {
+            margin: 14px 0;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .count-item {
+            text-align: center;
+        }
+
+        .count-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .count-label {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .85rem;
         }
 
         .whatsapp-buttons {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
         }
 
         .whatsapp {
@@ -219,18 +225,19 @@
         }
 
         form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            max-width: 600px;
+            margin: 30px auto 0;
         }
 
         input,
         select,
         textarea {
             width: 100%;
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: 12px;
+            background: white;
             font-family: inherit;
         }
 
@@ -239,7 +246,7 @@
             resize: vertical;
         }
 
-        .submit-btn {
+        button {
             border: none;
             cursor: pointer;
         }
@@ -248,12 +255,18 @@
             background: var(--green-dark);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
+            margin-top: 50px;
+        }
+
+        footer h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: all .8s ease;
         }
 
@@ -264,16 +277,20 @@
 
         @media(max-width:768px) {
 
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero-content h1 {
+                font-size: 3rem;
             }
 
-            .timer {
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .countdown {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .section-title {
-                font-size: 2rem;
+            .count-number {
+                font-size: 2.2rem;
             }
 
         }
@@ -282,254 +299,276 @@
 
 <body>
 
+    <!-- PORTADA -->
     <header class="hero">
+
+        <img src="img/portada.jpeg" alt="María y Juan" class="hero-image">
+
+        <div class="hero-overlay"></div>
+
         <div class="hero-content">
+
+            <div class="hero-floral">
+                ❦
+            </div>
+
             <h1>María & Juan</h1>
-            <p class="date">14 DE JUNIO DE 2027</p>
+
+            <p class="date">
+                14 · JUNIO · 2027
+            </p>
 
             <p>
                 Nos encantaría compartir con vosotros uno de los días más importantes de nuestras vidas.
             </p>
 
-            <a href="#ceremonia" class="btn">
-                Ver detalles
-            </a>
         </div>
+
+        <div class="scroll">
+            ↓
+        </div>
+
     </header>
 
-    <section id="ceremonia" class="reveal">
-        <div class="container">
-            <h2 class="section-title">Ceremonia</h2>
+    <div class="floral-divider">❦ ❦ ❦</div>
 
-            <div class="card">
-                <h3>Iglesia de San Pedro</h3>
+    <!-- CEREMONIA -->
 
-                <p><strong>Hora:</strong> 12:00</p>
-                <p><strong>Dirección:</strong> Calle Ejemplo 123</p>
+    <section class="section reveal">
 
-                <br>
+        <div class="section-icon">🌿</div>
 
-                <a class="btn" href="https://maps.google.com" target="_blank">
-                    Cómo llegar
-                </a>
-            </div>
+        <h2>Ceremonia</h2>
+
+        <p>
+            La ceremonia tendrá lugar en la Iglesia de San Pedro.
+        </p>
+
+        <div class="info">
+            <p><strong>Hora:</strong> 12:00</p>
+            <p><strong>Dirección:</strong> Calle Ejemplo 123</p>
         </div>
+
+        <a href="https://maps.google.com" target="_blank" class="btn">
+            Cómo llegar
+        </a>
+
     </section>
 
-    <section id="celebracion" class="reveal">
-        <div class="container">
-            <h2 class="section-title">Celebración</h2>
+    <div class="floral-divider">❦ ❦ ❦</div>
 
-            <div class="card">
-                <h3>Finca Los Olivos</h3>
+    <!-- CELEBRACIÓN -->
 
-                <p><strong>Inicio:</strong> 14:00</p>
-                <p><strong>Dirección:</strong> Camino Ejemplo 456</p>
+    <section class="section reveal">
 
-                <br>
+        <div class="section-icon">🌿</div>
 
-                <a class="btn" href="https://maps.google.com" target="_blank">
-                    Cómo llegar
-                </a>
-            </div>
+        <h2>Celebración</h2>
+
+        <p>
+            Tras la ceremonia continuaremos la celebración en la Finca Los Olivos.
+        </p>
+
+        <div class="info">
+            <p><strong>Inicio:</strong> 14:00</p>
+            <p><strong>Dirección:</strong> Camino Ejemplo 456</p>
         </div>
+
+        <a href="https://maps.google.com" target="_blank" class="btn">
+            Cómo llegar
+        </a>
+
     </section>
 
-    <section id="autobus" class="reveal">
-        <div class="container">
+    <div class="floral-divider">❦ ❦ ❦</div>
 
-            <h2 class="section-title">
-                Servicio de Autobús
-            </h2>
+    <!-- AUTOBÚS -->
 
-            <div class="bus-grid">
+    <section class="section reveal">
 
-                <div class="bus-card">
-                    <h3>Servicio 1</h3>
-                    <p>Salida Oviedo 11:00</p>
-                </div>
+        <div class="section-icon">🌿</div>
 
-                <div class="bus-card">
-                    <h3>Servicio 2</h3>
-                    <p>Salida Gijón 11:00</p>
-                </div>
+        <h2>Servicio de Autobús</h2>
 
-                <div class="bus-card">
-                    <h3>Servicio 3</h3>
-                    <p>Vuelta 01:00</p>
-                </div>
+        <p>
+            Dispondréis de varios servicios de transporte durante la boda.
+        </p>
 
-                <div class="bus-card">
-                    <h3>Servicio 4</h3>
-                    <p>Vuelta 03:00</p>
-                </div>
+        <ul class="bus-list">
+            <li>🚍 Oviedo → Ceremonia (11:00)</li>
+            <li>🚍 Gijón → Ceremonia (11:00)</li>
+            <li>🚍 Vuelta 01:00</li>
+            <li>🚍 Vuelta 03:00</li>
+            <li>🚍 Vuelta 05:00</li>
+        </ul>
 
-                <div class="bus-card">
-                    <h3>Servicio 5</h3>
-                    <p>Vuelta 05:00</p>
-                </div>
-
-            </div>
-        </div>
     </section>
 
-    <section class="countdown reveal">
-        <div class="container">
+    <div class="floral-divider">❦ ❦ ❦</div>
 
-            <h2 class="section-title" style="color:white;">
-                Cuenta Atrás
-            </h2>
+    <!-- CUENTA ATRÁS -->
 
-            <div class="timer">
+    <section class="section reveal">
 
-                <div class="time-box">
-                    <span id="days" class="time-number">0</span>
-                    <span class="time-label">Días</span>
-                </div>
+        <div class="section-icon">🌿</div>
 
-                <div class="time-box">
-                    <span id="hours" class="time-number">0</span>
-                    <span class="time-label">Horas</span>
-                </div>
+        <h2>Cuenta Atrás</h2>
 
-                <div class="time-box">
-                    <span id="minutes" class="time-number">0</span>
-                    <span class="time-label">Minutos</span>
-                </div>
+        <div class="countdown">
 
-                <div class="time-box">
-                    <span id="seconds" class="time-number">0</span>
-                    <span class="time-label">Segundos</span>
-                </div>
-
+            <div class="count-item">
+                <div id="days" class="count-number">0</div>
+                <div class="count-label">Días</div>
             </div>
+
+            <div class="count-item">
+                <div id="hours" class="count-number">0</div>
+                <div class="count-label">Horas</div>
+            </div>
+
+            <div class="count-item">
+                <div id="minutes" class="count-number">0</div>
+                <div class="count-label">Minutos</div>
+            </div>
+
+            <div class="count-item">
+                <div id="seconds" class="count-number">0</div>
+                <div class="count-label">Segundos</div>
+            </div>
+
         </div>
+
     </section>
 
-    <section class="photos reveal">
-        <div class="container">
+    <div class="floral-divider">❦ ❦ ❦</div>
 
-            <h2 class="section-title">
-                Sube Tus Fotos
-            </h2>
+    <!-- FOTOS -->
 
-            <p style="margin-bottom:30px;">
-                Queremos recordar cada momento.
-                Comparte tus fotos con nosotros.
-            </p>
+    <section class="section reveal">
 
-            <a href="https://drive.google.com" target="_blank" class="btn">
-                Subir Fotos
+        <div class="section-icon">🌿</div>
+
+        <h2>Sube Tus Fotos</h2>
+
+        <p>
+            Ayúdanos a conservar los mejores recuerdos compartiendo tus fotografías.
+        </p>
+
+        <a href="https://drive.google.com" target="_blank" class="btn">
+            Compartir Fotos
+        </a>
+
+    </section>
+
+    <div class="floral-divider">❦ ❦ ❦</div>
+
+    <!-- CONFIRMACIÓN -->
+
+    <section class="section reveal">
+
+        <div class="section-icon">🌿</div>
+
+        <h2>Confirmación de Asistencia</h2>
+
+        <p>
+            Te agradeceríamos que confirmaras tu asistencia antes del 1 de mayo.
+        </p>
+
+        <div class="whatsapp-buttons">
+
+            <a href="https://wa.me/34600000001" class="btn whatsapp">
+                Confirmar con María
+            </a>
+
+            <a href="https://wa.me/34600000002" class="btn whatsapp">
+                Confirmar con Juan
             </a>
 
         </div>
-    </section>
 
-    <section class="reveal">
-        <div class="container">
+        <form action="https://formsubmit.co/TU_EMAIL@gmail.com" method="POST">
 
-            <h2 class="section-title">
-                Confirmación de Asistencia
-            </h2>
+            <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
 
-            <div class="confirmation-options">
+            <select name="asistencia" required>
+                <option value="">¿Asistirás?</option>
+                <option>Sí</option>
+                <option>No</option>
+            </select>
 
-                <div class="whatsapp-box">
+            <input type="text" name="menu" placeholder="Alergias o menú especial">
 
-                    <h3 style="margin-bottom:20px;">
-                        Confirmar por WhatsApp
-                    </h3>
+            <textarea name="comentarios" placeholder="Comentarios adicionales"></textarea>
 
-                    <div class="whatsapp-buttons">
+            <button class="btn" type="submit">
+                Enviar Confirmación
+            </button>
 
-                        <a href="https://wa.me/34600000001" target="_blank" class="btn whatsapp">
-                            Confirmar con María
-                        </a>
+        </form>
 
-                        <a href="https://wa.me/34600000002" target="_blank" class="btn whatsapp">
-                            Confirmar con Juan
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <div class="form-box">
-
-                    <h3 style="margin-bottom:20px;">
-                        Formulario
-                    </h3>
-
-                    <form action="https://formsubmit.co/TU_EMAIL" method="POST">
-
-                        <input type="text" name="nombre" placeholder="Nombre completo" required>
-
-                        <select name="asistencia" required>
-                            <option value="">
-                                ¿Asistirás?
-                            </option>
-                            <option>Sí</option>
-                            <option>No</option>
-                        </select>
-
-                        <input type="text" name="menu" placeholder="Menú especial o alergias">
-
-                        <textarea name="comentarios" placeholder="Comentarios">
-                    </textarea>
-
-                        <button type="submit" class="btn submit-btn">
-                            Enviar Confirmación
-                        </button>
-
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
     </section>
 
     <footer>
+
+        <div style="font-size:2rem;margin-bottom:15px;">
+            ❦
+        </div>
+
         <h3>María & Juan</h3>
-        <p>Gracias por acompañarnos en este día tan especial.</p>
-        <p>14 · 06 · 2027</p>
+
+        <p>
+            Gracias por acompañarnos en este día tan especial.
+        </p>
+
+        <p style="margin-top:10px;">
+            14 · 06 · 2027
+        </p>
+
     </footer>
 
     <script>
 
-        // Cuenta atrás
-        const weddingDate = new Date("June 14, 2027 12:00:00").getTime();
+        // CUENTA ATRÁS
+
+        const weddingDate =
+            new Date("June 14, 2027 12:00:00").getTime();
 
         setInterval(() => {
 
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('days').innerHTML =
+                Math.floor(distance / (1000 * 60 * 60 * 24));
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
+            document.getElementById('hours').innerHTML =
+                Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+            document.getElementById('minutes').innerHTML =
+                Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('seconds').innerHTML =
+                Math.floor((distance % (1000 * 60)) / 1000);
 
         }, 1000);
 
 
-        // Animación scroll
-        const reveals = document.querySelectorAll('.reveal');
+        // ANIMACIONES
+
+        const elements =
+            document.querySelectorAll('.reveal');
 
         function revealElements() {
 
-            reveals.forEach(el => {
+            elements.forEach(el => {
 
-                const top = el.getBoundingClientRect().top;
-                const visible = window.innerHeight - 100;
+                const top =
+                    el.getBoundingClientRect().top;
 
-                if (top < visible) {
+                if (top < window.innerHeight - 80) {
+
                     el.classList.add('active');
+
                 }
 
             });
@@ -544,4 +583,3 @@
 </body>
 
 </html>
-```
