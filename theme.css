@@ -8,24 +8,24 @@
   --burgundy-light: #9C2E3F;
   --burgundy-dark: #4A0F1A;
   --burgundy-rgba: rgba(123, 31, 46, 0.85);
-  
+
   --gold: #D4AF37;
   --gold-light: #F3E5AB;
   --gold-dark: #AA7C11;
   --gold-gradient: linear-gradient(135deg, #b8860b, #ffd700, #daa520);
-  
+
   --cream: #FAF8F5;
   --cream-dark: #F3ECE2;
   --white: #FFFFFF;
-  
+
   --charcoal: #3A3630;
   --charcoal-light: #706B63;
-  
+
   /* Fuentes Tipográficas */
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
   --font-hand: 'Caveat', cursive;
-  
+
   /* Transiciones y Sombras */
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --shadow-soft: 0 10px 30px rgba(123, 31, 46, 0.04);
@@ -84,7 +84,7 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
-  
+
   /* Tarjetas de ancho completo */
   .card.banner,
   .card.card-itinerary,
@@ -100,18 +100,18 @@ h1 {
    Tarjetas (Cards)
    ========================================================================== */
 .card {
-  background-color: var(--white);
+  background-color: transparent;
   border-radius: 24px;
   padding: 50px 40px;
-  box-shadow: var(--shadow-card);
-  border: var(--border-light);
+  box-shadow: none;
+  border: none;
   position: relative;
   overflow: hidden;
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s ease;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease;
 }
 
 .card.visible {
@@ -139,13 +139,13 @@ h1 {
   content: "";
   position: absolute;
   inset: 15px;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.15);
+  /* o transparent */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-radius: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   z-index: 1;
-  transition: var(--transition);
 }
 
 .card.soft-bg:hover::before {
@@ -166,12 +166,15 @@ h1 {
   .card {
     padding: 40px 20px;
   }
+
   .card.soft-bg {
     padding: 45px 15px;
   }
+
   .card.soft-bg::before {
     inset: 8px;
   }
+
   .card.soft-bg:hover::before {
     inset: 6px;
   }
@@ -295,9 +298,9 @@ h1 {
   z-index: 2;
   position: relative;
   transition: var(--transition);
-  
-  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
-  mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
 }
 
 .card.banner:hover img {
@@ -308,14 +311,17 @@ h1 {
   .card.banner h2 {
     font-size: 3.8rem;
   }
+
   .card.banner p:nth-child(2) {
     font-size: 1.8rem;
   }
+
   .card.banner p:nth-child(3) {
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     margin-bottom: 25px;
   }
+
   .card.banner img {
     margin-top: 5px;
   }
@@ -392,7 +398,7 @@ h1 {
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: 0.9rem;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.01);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.01);
   transition: var(--transition);
   display: flex;
   align-items: center;
@@ -400,7 +406,8 @@ h1 {
 }
 
 .soft-list-box li::before {
-  content: "\f207"; /* Icono autobús de FontAwesome */
+  content: "\f207";
+  /* Icono autobús de FontAwesome */
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   color: var(--burgundy);
@@ -469,7 +476,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: var(--transition);
 }
 
@@ -582,6 +589,7 @@ h1 {
     transform: scale(1);
     box-shadow: 0 3px 8px rgba(123, 31, 46, 0.25);
   }
+
   100% {
     transform: scale(1.08);
     box-shadow: 0 4px 14px rgba(123, 31, 46, 0.5);
@@ -656,7 +664,7 @@ h1 {
   background: var(--white);
   border-radius: 16px;
   padding: 8px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.02);
   border: var(--border-gold);
   overflow: hidden;
 }
