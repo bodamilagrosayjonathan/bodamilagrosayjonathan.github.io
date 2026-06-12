@@ -589,6 +589,24 @@
       padding: 2rem;
     }
 
+    .photo-upload-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2.5rem;
+      background: var(--deep-rose);
+      color: var(--warm-white);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: 11px;
+      transition: background .3s ease, transform .2s ease;
+    }
+
+    .photo-upload-btn:hover {
+      background: var(--dusty-rose);
+      transform: translateY(-2px);
+    }
+
     /* ── FOOTER ── */
     footer {
       text-align: center;
@@ -1004,6 +1022,8 @@
       .letter-title {
         font-size: 1.3rem;
       }
+
+
     }
   </style>
 </head>
@@ -1349,6 +1369,9 @@
         <span class="countdown-label">Segundos</span>
       </div>
     </div>
+    <a href="https://calendar.app.google/DXeuS5cXLBsgaqzy9" target="_blank" class="photo-upload-btn">
+      Añade a tu calendario
+    </a>
   </section>
 
   <!-- ══════════════════════════════════════
@@ -1360,14 +1383,7 @@
       <div class="frame-corner tr"></div>
       <div class="frame-corner bl"></div>
       <div class="frame-corner br"></div>
-      <div class="photo-placeholder">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="8" width="40" height="32" rx="2" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="24" cy="23" r="8" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="36" cy="14" r="3" fill="#8B5E45" opacity=".4" />
-        </svg>
-        <span>Vuestra foto aquí</span>
-      </div>
+      <img class="photo-frame" src="img/WhatsApp Image 2026-06-11 at 22.02.14.jpeg" alt="Milagrosa y Jónathan">
     </div>
     <p class="photo-caption">Dos almas, un mismo camino</p>
   </div>
@@ -1602,20 +1618,40 @@
   <!-- ══════════════════════════════════════
      FOTO 3 — entre Detalles y Historia
 ════════════════════════════════════════ -->
+
   <div class="photo-break reveal">
     <div class="photo-frame-outer">
       <div class="frame-corner tl"></div>
       <div class="frame-corner tr"></div>
       <div class="frame-corner bl"></div>
       <div class="frame-corner br"></div>
-      <div class="photo-placeholder">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="8" width="40" height="32" rx="2" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="24" cy="23" r="8" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="36" cy="14" r="3" fill="#8B5E45" opacity=".4" />
-        </svg>
-        <span>Vuestra foto aquí</span>
-      </div>
+      <img class="photo-frame" src="img/12.jpeg" alt="Milagrosa y Jónathan">
+    </div>
+    <p class="photo-caption">Donde empieza nuestra historia</p>
+  </div>
+
+
+
+
+  <!-- ══════════════════════════════════════  FOTOS  -->
+  <section class="section" id="sube-fotos" style="background:var(--warm-white);">
+    <p class="section-label reveal">Comparte con nosotros las fotos que hagas en la boda</p>
+    <h2 class="section-title reveal reveal-d1">¡Sube tus fotos!</h2>
+    <a href="https://www.dropbox.com/request/jHXZ8ogCF34Pvgvh1gbz" target="_blank" class="photo-upload-btn">
+      Subir fotos
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════
+     FOTO 3 — entre Detalles y Historia
+════════════════════════════════════════ -->
+  <div class="photo-break reveal">
+    <div class="photo-frame-outer">
+      <div class="frame-corner tl"></div>
+      <div class="frame-corner tr"></div>
+      <div class="frame-corner bl"></div>
+      <div class="frame-corner br"></div>
+      <img class="photo-frame" src="img/4.jpeg" alt="Milagrosa y Jónathan">
     </div>
     <p class="photo-caption">Donde empieza nuestra historia</p>
   </div>
@@ -1655,14 +1691,7 @@
       <div class="frame-corner tr"></div>
       <div class="frame-corner bl"></div>
       <div class="frame-corner br"></div>
-      <div class="photo-placeholder">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="8" width="40" height="32" rx="2" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="24" cy="23" r="8" stroke="#8B5E45" stroke-width="1" />
-          <circle cx="36" cy="14" r="3" fill="#8B5E45" opacity=".4" />
-        </svg>
-        <span>Vuestra foto aquí</span>
-      </div>
+      <img class="photo-frame" src="img/5.jpeg" alt="Milagrosa y Jónathan">
     </div>
     <p class="photo-caption">¡Nos vemos pronto!</p>
   </div>
@@ -1677,17 +1706,23 @@
       Tu presencia es el mejor regalo que podéis hacernos.
     </p>
     <div class="rsvp-form reveal reveal-d3" id="rsvp-form-wrap">
-      <form action="https://formsubmit.co/joheras@gmail.com" method="POST">
+      <form action="https://formsubmit.co/bodamilagrosayjonathan@gmail.com" method="POST">
 
         <input type="text" name="nombre" placeholder="Nombre y apellidos" required>
 
-        <select id="rsvp-attend">
+        <select id="rsvp-attend" name="asistencia">
           <option value="" disabled selected>¿Asistirás a la boda?</option>
           <option value="yes">Sí, allí estaré 🥂</option>
           <option value="no">Lo siento, no podré asistir</option>
         </select>
-        <input type="number" placeholder="Número de acompañantes (incluido tú)" id="rsvp-guests" min="1" max="10">
+        <input type="number" name="acompañantes" placeholder="Número de acompañantes" id="rsvp-guests" min="0" max="4">
 
+        <select id="rsvp-attend" name="autobus">
+          <option value="" disabled selected>¿Necesitas autobús?</option>
+          <option value="yes1">Sí, desde Logroño</option>
+          <option value="yes2">Sí, desde Nájera</option>
+          <option value="no">No, gracias</option>
+        </select>
 
         <input type="text" name="menu" placeholder="Alergias o menú especial">
 
