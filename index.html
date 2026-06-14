@@ -1677,6 +1677,7 @@
       <img class="photo-frame" src="img/23.jpeg" alt="Milagrosa y Jónathan">
     </div>
     <p class="photo-caption">¡Nos vemos pronto!</p>
+    <img src="img/iglesia1.jpeg" alt="Iglesia" width="250px" height="auto">
   </div>
 
   <!-- ══════════════════════════════════════  RSVP  -->
@@ -1805,8 +1806,16 @@
         overlay.classList.add('fade-out');
         document.body.classList.remove('no-scroll');
       }, 1600);
+
+      music.play();
+      musicBtn.classList.add('playing');
+      musicBtn.innerHTML = '❚❚';
+      isPlaying = true;
     }
   </script>
+  <audio id="bgMusic" preload="auto" loop>
+    <source src="img/audio.mp3" type="audio/mpeg">
+  </audio>
 </body>
 
 </html>
